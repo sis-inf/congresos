@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
 # Create your views here.
-def hello(request):
-    return HttpResponse("hello world hallo welt,hei maailma,hallo verden,hej verden, hej varlden,")
+def inicio(request):
+    return render(request,'inicio.html')
