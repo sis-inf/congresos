@@ -21,4 +21,5 @@ from myapp.views import inicio
 urlpatterns = [
     path('admin/', admin.site.urls),
     path ('',inicio),
+    
 ]
