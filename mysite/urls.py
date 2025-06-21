@@ -16,10 +16,35 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp.views import inicio
+from myapp.views import inicio,listado_de_noticias,detalles_de_noticia,cronograma,expositores
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    #1. Módulo Público-----------------------
+#a. Inicio
     path ('',inicio),
+#b. Noticias
+    path('listado_de_noticias/',listado_de_noticias),
+#c. Detalles de la noticia
+    path('detalles_de_noticia/',detalles_de_noticia),
+#d. 
+path('cronograma/',cronograma),
+#e. Expositores
+path('expositores/',expositores)
+#2. Módulo de Asistente------------------
+#a. Registro de Asistente
+#b. Cuenta de usuario
+#c. Impresión de Credencial
+#d. Impresión de Certificado
+#3. Módulo de Organizadores---------------
+#a. Registro de Staff
+#b. Asignación de Roles
+#c. Registro de Expositores
+#d. Entrega de Material
+#e. Entrega de refrigerio
+#f. Marcado de Asistencia
+#g. Registro de Noticias
+    
     
 ]

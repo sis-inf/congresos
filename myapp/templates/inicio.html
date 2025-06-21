@@ -6,11 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inicio</title>
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="texto-con-fondo-titulo">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</h1>
-    <p class="texto-con-fondo-titulo-1">xxxxxxxxxxxxx</p>
-    <p1 class="texto-con-fondo-1">XXXXXXXXXXXXX  XXXXXXXXXXX XXXXXXXXXXXX</p1>
-    <img src="{% static 'imagenPorDefecto.png' %}" alt="" width="500">
+   <ul class="menu">
+    <li><a href="#">INICIO</a></li>
+    <li><a href="#">EXPOSITORES</a></li>
+    <li><a href="#">AMBIENTES</a></li>
+    <li><a href="#">CRONOGRAMA</a></li>
+    <li><a href="#">NOTICIAS</a></li>
+    <li><a href="#">CERTIFICADOS</a></li>
+    <li><a href="#">CENTRO DE AYUDA</a></li>
+   </ul>
+   <!--botones-->
+   <header><h1>BIENVENIDOS AL CONGRESO</h1></header>
+
+    <button class="boton">Registrate a Hora</button>
+    &emsp;
+    <button class="boton">Iniciar Sesion</button>
+    &emsp;
+<!-- reloj-->
+    &emsp;
+  <div class="reloj-container">
+    <div class="reloj-digitos" id="reloj">31:00:00:00</div>
+    <div class="reloj-labels">
+      <div class="reloj-label">Días</div>
+      <div class="reloj-label">Horas</div>
+      <div class="reloj-label">Minutos</div>
+      <div class="reloj-label">Segundos</div>
+    </div>
+  </div>
+  <script>
+    // el tiempo inicial: 31 días en milisegundos
+    let tiempoRestante = 31 * 24 * 60 * 60; // en segundos
+
+    function actualizarReloj() {
+      let segundos = tiempoRestante;
+
+      const dias = Math.floor(segundos / (24 * 60 * 60));
+      segundos %= (24 * 60 * 60);
+      const horas = Math.floor(segundos / (60 * 60));
+      segundos %= (60 * 60);
+      const minutos = Math.floor(segundos / 60);
+      segundos %= 60;
+
+      document.getElementById('reloj').textContent =
+        `${String(dias).padStart(2, '0')}:` +
+        `${String(horas).padStart(2, '0')}:` +
+        `${String(minutos).padStart(2, '0')}:` +
+        `${String(segundos).padStart(2, '0')}`;
+
+      if (tiempoRestante > 0) {
+        tiempoRestante--;
+      } else {
+        clearInterval(intervalo);
+      }
+    }
+
+    const intervalo = setInterval(actualizarReloj, 1000);
+    actualizarReloj();
+  </script>
 </body>
 </html>
