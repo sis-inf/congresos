@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
@@ -56,3 +57,12 @@ def registro(request):
     else:
         form = RegistroForm()
     return render(request, 'registro.html', {'form': form})
+=======
+from django.shortcuts import render
+from django.http import HttpResponse
+
+# Create your views here.
+def inicio(request):
+    return render(request,'inicio.html')
+
+>>>>>>> d462d4b91c66232b68f2e620e9b127d212d474cf
