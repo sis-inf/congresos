@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.contrib.auth.forms import UserCreationForm
+from .models import Asistente
+from .forms import RegistroForm
 # Create your views here.
 
 #1. Módulo Público-----------------------
@@ -21,6 +23,9 @@ def expositores(request):
     return render(request,'expositores.html')
 #2. Módulo de Asistente------------------
 #a. Registro de Asistente
+def registro(request):
+    form=RegistroForm()
+    return render(request,'registro.html',{'form':form})
 #b. Cuenta de usuario
 #c. Impresión de Credencial
 #d. Impresión de Certificado
@@ -33,4 +38,21 @@ def expositores(request):
 #f. Marcado de Asistencia
 #g. Registro de Noticias
 
+##algo de la base de datos pero no entiendo bien que sea
 
+
+def registro(request):
+    if request.method == 'POST':
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            Asistente.objects.create(
+                nombre=form.cleaned_data['nombre'],
+                apellido=form.cleaned_data['apellido'],
+                ci=form.cleaned_data['ci'],
+                correo=form.cleaned_data['correo'],
+                contrasena=form.cleaned_data['contrasena']  # ¡No recomendado guardar contraseñas en texto plano!
+            )
+            return render(request, 'registro.html', {'form': RegistroForm(), 'mensaje': '¡Registro exitoso!'})
+    else:
+        form = RegistroForm()
+    return render(request, 'registro.html', {'form': form})

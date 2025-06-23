@@ -44,9 +44,10 @@ body{
 
   /*boton de registrarse*/
   .boton {
-        display: block; /* Esto es importante para que margin: auto funcione */
-     margin-left: auto;
-     margin-right: auto;
+      display: block; /* Esto es importante para que margin: auto funcione */
+      text-decoration: none;
+      margin-left: auto;
+      margin-right: auto;
       background: #be4126;
       color: #000000;
       border: none;

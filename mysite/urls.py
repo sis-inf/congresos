@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp.views import inicio,listado_de_noticias,detalles_de_noticia,cronograma,expositores
+from myapp.views import inicio,listado_de_noticias,detalles_de_noticia,cronograma,expositores,registro
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,9 +31,10 @@ urlpatterns = [
 #d. 
 path('cronograma/',cronograma),
 #e. Expositores
-path('expositores/',expositores)
+path('expositores/',expositores),
 #2. Módulo de Asistente------------------
 #a. Registro de Asistente
+path('registro/',registro),
 #b. Cuenta de usuario
 #c. Impresión de Credencial
 #d. Impresión de Certificado

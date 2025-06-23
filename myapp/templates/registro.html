@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!----------------------MENU------------------->
+   <ul class="menu">
+    <li><a href=" ">INICIO</a></li>
+    <li><a href="#">EXPOSITORES</a></li>
+    <li><a href="#">AMBIENTES</a></li>
+    <li><a href="#">CRONOGRAMA</a></li>
+    <li><a href="#">NOTICIAS</a></li>
+    <li><a href="#">CERTIFICADOS</a></li>
+    <li><a href="#">CENTRO DE AYUDA</a></li>
+   </ul>
+
+
+
+    <!--------------CONTENIDO-------------------->
+    <h1>REGISTRO</h1>
+<form action="/registro/" method="post">
+    {% csrf_token%}
+    {{form.as_p}}
+
+    <button>
+        resgistrarse
+    </button>
+</form>
+</body>
+</html>
