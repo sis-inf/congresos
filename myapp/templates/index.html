@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inicio</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+  <a href="/personal/" class="perfil-link">
+    <img src="{% static 'img/image personal default.png' %}" alt="Perfil" class="perfil-img">
+  </a>
+
+  <!----------------------MENU------------------->
+   <ul class="menu">
+    <li><a href="/">INICIO</a></li>
+    <li><a href="/expositores/">EXPOSITORES</a></li>
+    <li><a href="#">AMBIENTES</a></li>
+    <li><a href="/cronograma/">CRONOGRAMA</a></li>
+    <li><a href="/noticias/">NOTICIAS</a></li>
+    <li><a href="#">CERTIFICADOS</a></li>
+    <li><a href="#">CENTRO DE AYUDA</a></li>
+   </ul>
+   <!--botones-->
+   <header><h1>BIENVENIDOS AL CONGRESO</h1></header>
+
+    <button class="boton"><a href='registro/'>Registrate a Hora</a></button>
+    &emsp;
+    <button class="boton"><a href='sesion/'>Iniciar sesion</a></button>
+    &emsp;
+<!-- reloj-->
+    &emsp;
+  <div class="reloj-container">
+    <div class="reloj-digitos" id="reloj">31:00:00:00</div>
+    <div class="reloj-labels">
+      <div class="reloj-label">Días</div>
+      <div class="reloj-label">Horas</div>
+      <div class="reloj-label">Minutos</div>
+      <div class="reloj-label">Segundos</div>
+    </div>
+  </div>
+  <script>
+    // el tiempo inicial: 31 días en milisegundos
+    let tiempoRestante = 31 * 24 * 60 * 60; // en segundos
+
+    function actualizarReloj() {
+      let segundos = tiempoRestante;
+
+      const dias = Math.floor(segundos / (24 * 60 * 60));
+      segundos %= (24 * 60 * 60);
+      const horas = Math.floor(segundos / (60 * 60));
+      segundos %= (60 * 60);
+      const minutos = Math.floor(segundos / 60);
+      segundos %= 60;
+
+      document.getElementById('reloj').textContent =
+        `${String(dias).padStart(2, '0')}:` +
+        `${String(horas).padStart(2, '0')}:` +
+        `${String(minutos).padStart(2, '0')}:` +
+        `${String(segundos).padStart(2, '0')}`;
+
+      if (tiempoRestante > 0) {
+        tiempoRestante--;
+      } else {
+        clearInterval(intervalo);
+      }
+    }
+
+    const intervalo = setInterval(actualizarReloj, 1000);
+    actualizarReloj();
+  </script>
+
+  <!-- Carrusel de imágenes -->
+<div class="carrusel">
+  <img class="carrusel-img" src="{% static 'img/mrt1.jpg' %}"style="display:block;">
+  <img class="carrusel-img" src="{% static 'img/mrt2.jpg' %}"style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt3.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt4.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt5.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt6.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt7.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt8.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt9.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt10.jpg' %}" style="display:none;">
+  <button class="carrusel-btn" onclick="cambiarImagen(-1)">&#10094;</button>
+  <button class="carrusel-btn" onclick="cambiarImagen(1)">&#10095;</button>
+</div>
+
+<style>
+.carrusel {
+  position: relative;
+  width: 400px;
+  margin: 20px auto;
+}
+.carrusel-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: none;
+}
+.carrusel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: rgb(255, 255, 255);
+  border: none;
+  font-size: 24px;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 1;
+}
+.carrusel-btn:first-of-type { left: 10px; }
+.carrusel-btn:last-of-type { right: 10px; }
+</style>
+
+<script>
+let indice = 0;
+const imagenes = document.getElementsByClassName('carrusel-img');
+function mostrarImagen(n) {
+  for (let i = 0; i < imagenes.length; i++) {
+    imagenes[i].style.display = 'none';
+  }
+  imagenes[n].style.display = 'block';
+}
+function cambiarImagen(dir) {
+  indice += dir;
+  if (indice < 0) indice = imagenes.length - 1;
+  if (indice >= imagenes.length) indice = 0;
+  mostrarImagen(indice);
+}
+mostrarImagen(indice);
+</script>
+
+<!-- Foto de perfil en la esquina superior izquierda -->
+<a href="/personal/" class="perfil-link">
+  <img src="{% static 'img/image personal default.png' %}" alt="Perfil" class="perfil-img">
+</a>
+<style>
+.perfil-link {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 100;
+  display: block;
+}
+.perfil-img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 3px solid #e07a3f;
+  background: #fff;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.perfil-link:hover .perfil-img {
+  box-shadow: 0 4px 16px rgba(224,122,63,0.25);
+}
+</style>
+
+</body>
+
+
+<!-- Pie de página con Bootstrap Icons -->
+<footer class="footer">
+  <div class="footer-content">
+    <span>Síguenos en:</span>
+    <a href="https://facebook.com/" target="_blank" class="social-link">
+      <i class="bi bi-facebook social-icon"></i>
+    </a>
+    <a href="https://twitter.com/" target="_blank" class="social-link">
+      <i class="bi bi-twitter-x social-icon"></i>
+    </a>
+    <a href="https://instagram.com/" target="_blank" class="social-link">
+      <i class="bi bi-instagram social-icon"></i>
+    </a>
+    <a href="https://youtube.com/" target="_blank" class="social-link">
+      <i class="bi bi-youtube social-icon"></i>
+    </a>
+  </div>
+  <div class="footer-copy">
+    &copy; 2025 Congreso. Todos los derechos reservados.
+  </div>
+</footer>
+
+<style>
+.social-icon {
+  font-size: 28px;
+  color: #fff;
+  vertical-align: middle;
+  transition: color 0.2s;
+}
+.social-link:hover .social-icon {
+  color: #00bfff;
+}
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 20px 0 10px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+.footer-content {
+  margin-bottom: 10px;
+}
+.footer-copy {
+  font-size: 14px;
+  color: #aaa;
+}
+</style>
+
+</html>

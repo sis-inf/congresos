@@ -1,12 +1,151 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Cronograma</title>
+    <style>
+        body {
+            background: #f8d9c4;
+            font-family: Arial, sans-serif;
+        }
+        .cronograma-title {
+            background: #2d1c0b;
+            color: #fff;
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 10px 0;
+            width: 350px;
+            margin: 30px auto 0 auto;
+            border-radius: 3px 3px 0 0;
+            letter-spacing: 2px;
+        }
+        .cronograma-table {
+            background: #e07a3f;
+            margin: 0 auto;
+            border: 2px solid #4b3b2a;
+            width: 600px;
+            border-radius: 0 0 5px 5px;
+        }
+        .cronograma-table th, .cronograma-table td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 2px solid #222;
+        }
+        .cronograma-table th {
+            font-size: 1.2rem;
+            color: #222;
+            border-bottom: 3px solid #222;
+        }
+        .cronograma-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Cronograma</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, vel? Adipisci pariatur quas architecto fugiat repellendus doloremque animi dolorum cumque dolor porro numquam, nisi quos et asperiores recusandae nihil velit. Molestias nam fugit, est explicabo nulla tempore reiciendis ipsam accusantium. Earum, ad maxime! Reiciendis incidunt sunt doloribus laudantium nulla numquam ducimus accusantium earum officia tempore, voluptatem pariatur placeat assumenda. Est molestiae error molestias beatae enim maiores asperiores? Magnam quisquam unde nulla blanditiis maiores doloribus sequi tempora, tempore fugit sit, cum necessitatibus, quibusdam voluptatum temporibus beatae nam eum? Repellendus consequuntur sed quam perferendis praesentium ipsam cupiditate perspiciatis reiciendis commodi ipsa voluptatem minus sint quae a autem ratione cumque voluptate facilis reprehenderit esse, quasi omnis magnam! Eveniet pariatur sint molestias laborum, similique aut alias doloribus reprehenderit vero rem assumenda veniam ipsum maiores, eos perspiciatis non est. Non veniam sit possimus ab pariatur, enim perspiciatis, minima neque rerum in corrupti commodi accusantium fugit veritatis quam quidem necessitatibus officiis at quasi cumque provident. Nihil officia sequi aliquam deserunt incidunt aliquid voluptatum praesentium, dignissimos ab, reiciendis obcaecati commodi maxime, earum nesciunt impedit dolore quaerat voluptatibus placeat nulla est repellat minima nobis. Odio expedita quidem explicabo, atque magni, quis, omnis iusto illo sapiente porro possimus harum!</p>
+    <!----------------------MENU------------------->
+   <ul class="menu">
+    <li><a href="/">INICIO</a></li>
+    <li><a href="">EXPOSITORES</a></li>
+    <li><a href="#">AMBIENTES</a></li>
+    <li><a href="#">CRONOGRAMA</a></li>
+    <li><a href="#">NOTICIAS</a></li>
+    <li><a href="#">CERTIFICADOS</a></li>
+    <li><a href="#">CENTRO DE AYUDA</a></li>
+   </ul>
+   <!--botones-->
+   <header><h1>BIENVENIDOS AL CONGRESO</h1></header>
+
+    <button class="boton"><a href='registro/'>Registrate a Hora</a></button>
+    &emsp;
+    <button class="boton">Iniciar Sesion</button>
+    &emsp;
+    <div class="cronograma-title">Cronograma</div>
+    <table class="cronograma-table">
+        <tr>
+            <th>DIA HORA</th>
+            <th>ACTIVIDAD</th>
+            <th>A CARGO</th>
+        </tr>
+        <tr>
+            <td>Lunes 09:00</td>
+            <td>Inauguración</td>
+            <td>Comité</td>
+        </tr>
+        <tr>
+            <td>Lunes 10:00</td>
+            <td>Charla Seguridad</td>
+            <td>Ing. Pérez</td>
+        </tr>
+        <tr>
+            <td>Martes 09:00</td>
+            <td>Taller Práctico</td>
+            <td>Lic. Gómez</td>
+        </tr>
+        <tr>
+            <td>Miércoles 11:00</td>
+            <td>Panel de Expertos</td>
+            <td>Varios</td>
+        </tr>
+        <tr>
+            <td>Jueves 14:00</td>
+            <td>Clausura</td>
+            <td>Organización</td>
+        </tr>
+    </table>
+
+
+
+<!-- Pie de página con Bootstrap Icons -->
+<footer class="footer">
+  <div class="footer-content">
+    <span>Síguenos en:</span>
+    <a href="https://facebook.com/" target="_blank" class="social-link">
+      <i class="bi bi-facebook social-icon"></i>
+    </a>
+    <a href="https://twitter.com/" target="_blank" class="social-link">
+      <i class="bi bi-twitter-x social-icon"></i>
+    </a>
+    <a href="https://instagram.com/" target="_blank" class="social-link">
+      <i class="bi bi-instagram social-icon"></i>
+    </a>
+    <a href="https://youtube.com/" target="_blank" class="social-link">
+      <i class="bi bi-youtube social-icon"></i>
+    </a>
+  </div>
+  <div class="footer-copy">
+    &copy; 2025 Congreso. Todos los derechos reservados.
+  </div>
+</footer>
+
+<style>
+.social-icon {
+  font-size: 28px;
+  color: #fff;
+  vertical-align: middle;
+  transition: color 0.2s;
+}
+.social-link:hover .social-icon {
+  color: #00bfff;
+}
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 20px 0 10px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+.footer-content {
+  margin-bottom: 10px;
+}
+.footer-copy {
+  font-size: 14px;
+  color: #aaa;
+}
+</style>
 </body>
 </html>

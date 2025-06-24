@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
@@ -9,10 +8,10 @@ from .forms import RegistroForm
 #1. Módulo Público-----------------------
 #a. Inicio
 def inicio(request):
-    return render(request,'inicio.html')
+    return render(request,'index.html')
 #b. Noticias
-def listado_de_noticias(request):
-    return render(request,'listado_de_noticias.html')
+def noticias(request):
+    return render(request,'noticias.html')
 #c. Detalles de la noticia
 def detalles_de_noticia(request):
     return render(request,'detalle_de_noticia.html')
@@ -27,6 +26,12 @@ def expositores(request):
 def registro(request):
     form=RegistroForm()
     return render(request,'registro.html',{'form':form})
+def personal (request):
+    return render(request,'personal.html')
+
+
+def sesion(request):
+    return render(request, 'sesion.html')
 #b. Cuenta de usuario
 #c. Impresión de Credencial
 #d. Impresión de Certificado
@@ -57,12 +62,4 @@ def registro(request):
     else:
         form = RegistroForm()
     return render(request, 'registro.html', {'form': form})
-=======
-from django.shortcuts import render
-from django.http import HttpResponse
 
-# Create your views here.
-def inicio(request):
-    return render(request,'inicio.html')
-
->>>>>>> d462d4b91c66232b68f2e620e9b127d212d474cf

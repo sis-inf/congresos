@@ -1,12 +1,164 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expositores</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .expositores-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 30px;
+        }
+        .expositor {
+            border-bottom: 1px solid #e07a3f;
+            padding: 20px 0;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .expositor:last-child {
+            border-bottom: none;
+        }
+        .expositor-foto {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: #eee;
+            object-fit: cover;
+            border: 3px solid #e07a3f;
+        }
+        .expositor-info {
+            flex: 1;
+        }
+        .expositor-nombre {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2d1c0b;
+            margin-bottom: 6px;
+            font-family: 'Orbitron', Arial, sans-serif;
+        }
+        .expositor-tema {
+            color: #e07a3f;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        .expositor-lugar {
+            color: #555;
+            margin-top: 4px;
+            font-style: italic;
+        }
+        h1 {
+            text-align: center;
+            background: #2d1c0b;
+            color: #fff;
+            padding: 12px 0;
+            border-radius: 5px 5px 0 0;
+            font-family: 'Orbitron', Arial, sans-serif;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        body {
+            background: #f8d9c4;
+        }
+        /* Menú y pie de página usan los estilos de main.css */
+    </style>
 </head>
 <body>
-    <h1>Expositores</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque quas perspiciatis dolorem blanditiis quos perferendis voluptate. Impedit, nesciunt maxime? Quaerat aliquam quas obcaecati dolorem hic dolor recusandae doloremque molestiae error eligendi delectus odit explicabo, eos architecto adipisci quae voluptatum! Debitis fugiat voluptate, ipsa quasi quae reprehenderit sit voluptatem! Omnis corporis vitae natus repellendus temporibus. Error laboriosam placeat ipsum rerum vitae eum ab? Doloribus harum commodi, deleniti obcaecati cupiditate mollitia corporis est molestias perferendis non enim aspernatur aliquid explicabo architecto fuga. Quae natus veritatis, provident iste, ea maxime, modi in deleniti earum rem nobis eos non! Ratione, porro distinctio iste quae necessitatibus impedit pariatur magnam! Nesciunt eligendi repellat distinctio autem laudantium quo, aut totam laboriosam saepe eius, unde aspernatur? Quod totam similique quia vero nostrum, autem sapiente asperiores incidunt sunt ducimus tempore cupiditate velit assumenda facere recusandae nobis expedita quasi. Suscipit voluptatum asperiores nesciunt quia porro! Repellat rerum tempora sit libero doloribus. Dolores natus vitae, delectus nostrum aliquid aliquam ratione. Accusamus laboriosam eaque modi ad deleniti autem sint similique unde quis repellendus aspernatur soluta praesentium totam, delectus incidunt cumque non adipisci. Consequuntur voluptas praesentium qui error ipsa reiciendis, nam cum saepe voluptate rem eveniet? Corporis fuga minima porro enim hic.</p>
+    <!-- MENÚ -->
+    <ul class="menu">
+        <li><a href="/">INICIO</a></li>
+        <li><a href="#">EXPOSITORES</a></li>
+        <li><a href="#">AMBIENTES</a></li>
+        <li><a href="/cronograma/">CRONOGRAMA</a></li>
+        <li><a href="#">NOTICIAS</a></li>
+        <li><a href="#">CERTIFICADOS</a></li>
+        <li><a href="#">CENTRO DE AYUDA</a></li>
+    </ul>
+
+    <div class="expositores-container">
+        <h1>Expositores</h1>
+        <div class="expositor">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto expositor" class="expositor-foto">
+            <div class="expositor-info">
+                <div class="expositor-nombre">Dr. Juan Pérez</div>
+                <div>Doctor en Seguridad Informática. 15 años de experiencia en ciberseguridad y docente universitario.</div>
+                <div class="expositor-tema">Tema: Seguridad en Redes Empresariales</div>
+                <div class="expositor-lugar">Lugar: Auditorio Principal</div>
+            </div>
+        </div>
+        <div class="expositor">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto expositor" class="expositor-foto">
+            <div class="expositor-info">
+                <div class="expositor-nombre">Ing. María Gómez</div>
+                <div>Ingeniera de Sistemas, especialista en inteligencia artificial y análisis de datos.</div>
+                <div class="expositor-tema">Tema: IA aplicada a la Seguridad</div>
+                <div class="expositor-lugar">Lugar: Sala 2</div>
+            </div>
+        </div>
+        <div class="expositor">
+            <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Foto expositor" class="expositor-foto">
+            <div class="expositor-info">
+                <div class="expositor-nombre">Lic. Pedro Ramírez</div>
+                <div>Licenciado en Derecho, consultor en protección de datos y privacidad digital.</div>
+                <div class="expositor-tema">Tema: Leyes y Privacidad Digital</div>
+                <div class="expositor-lugar">Lugar: Aula Magna</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página  -->
+    <footer class="footer">
+      <div class="footer-content">
+        <span>Síguenos en:</span>
+        <a href="https://facebook.com/" target="_blank" class="social-link">
+          <i class="bi bi-facebook social-icon"></i>
+        </a>
+        <a href="https://twitter.com/" target="_blank" class="social-link">
+          <i class="bi bi-twitter-x social-icon"></i>
+        </a>
+        <a href="https://instagram.com/" target="_blank" class="social-link">
+          <i class="bi bi-instagram social-icon"></i>
+        </a>
+        <a href="https://youtube.com/" target="_blank" class="social-link">
+          <i class="bi bi-youtube social-icon"></i>
+        </a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2025 Congreso. Todos los derechos reservados.
+      </div>
+    </footer>
+    <style>
+    .social-icon {
+      font-size: 28px;
+      color: #fff;
+      vertical-align: middle;
+      transition: color 0.2s;
+    }
+    .social-link:hover .social-icon {
+      color: #00bfff;
+    }
+    .footer {
+      background: #222;
+      color: #fff;
+      padding: 20px 0 10px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .footer-content {
+      margin-bottom: 10px;
+    }
+    .footer-copy {
+      font-size: 14px;
+      color: #aaa;
+    }
+    </style>
 </body>
 </html>
