@@ -19,11 +19,11 @@
    <ul class="menu">
     <li><a href="/">INICIO</a></li>
     <li><a href="/expositores/">EXPOSITORES</a></li>
-    <li><a href="#">AMBIENTES</a></li>
+    <li><a href="ambientes/">AMBIENTES</a></li>
     <li><a href="/cronograma/">CRONOGRAMA</a></li>
     <li><a href="/noticias/">NOTICIAS</a></li>
-    <li><a href="#">CERTIFICADOS</a></li>
-    <li><a href="#">CENTRO DE AYUDA</a></li>
+    <li><a href="certificados/">CERTIFICADOS</a></li>
+    <li><a href="/ayuda/">CENTRO DE AYUDA</a></li>
    </ul>
    <!--botones-->
    <header><h1>BIENVENIDOS AL CONGRESO</h1></header>
@@ -32,17 +32,33 @@
     &emsp;
     <button class="boton"><a href='sesion/'>Iniciar sesion</a></button>
     &emsp;
+<!-- Carrusel de imágenes -->
+<div class="carrusel">
+  <img class="carrusel-img" src="{% static 'img/mrt1.jpg' %}"style="display:block;">
+  <img class="carrusel-img" src="{% static 'img/mrt2.jpg' %}"style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt3.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt4.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt5.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt6.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt7.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt8.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt9.jpg' %}" style="display:none;">
+  <img class="carrusel-img" src="{% static 'img/mrt10.jpg' %}" style="display:none;">
+  <button class="carrusel-btn" onclick="cambiarImagen(-1)">&#10094;</button>
+  <button class="carrusel-btn" onclick="cambiarImagen(1)">&#10095;</button>
+</div>
+
 <!-- reloj-->
-    &emsp;
-  <div class="reloj-container">
-    <div class="reloj-digitos" id="reloj">31:00:00:00</div>
-    <div class="reloj-labels">
-      <div class="reloj-label">Días</div>
-      <div class="reloj-label">Horas</div>
-      <div class="reloj-label">Minutos</div>
-      <div class="reloj-label">Segundos</div>
-    </div>
+<div class="reloj-container">
+  <div class="reloj-digitos" id="reloj">31:00:00:00</div>
+  <div class="reloj-labels">
+    <div class="reloj-label">Días</div>
+    <div class="reloj-label">Horas</div>
+    <div class="reloj-label">Minutos</div>
+    <div class="reloj-label">Segundos</div>
   </div>
+</div>
+
   <script>
     // el tiempo inicial: 31 días en milisegundos
     let tiempoRestante = 31 * 24 * 60 * 60; // en segundos
@@ -74,21 +90,7 @@
     actualizarReloj();
   </script>
 
-  <!-- Carrusel de imágenes -->
-<div class="carrusel">
-  <img class="carrusel-img" src="{% static 'img/mrt1.jpg' %}"style="display:block;">
-  <img class="carrusel-img" src="{% static 'img/mrt2.jpg' %}"style="display:none;">
-  <img class="carrusel-img" src="{% static 'img/mrt3.jpg' %}" style="display:none;">
-  <img class="carrusel-img" src="{% static 'img/mrt4.jpg' %}" style="display:none;">
-  <img class="carrusel-img" src="{% static 'img/mrt5.jpg' %}" style="display:none;">
-  <img class="carrusel-img" src="{% static 'img/mrt6.jpg' %}" style="display:none;">
-  <img class="carrusel-img" src="{% static 'img/mrt7.jpg' %}" style="display:none;">
-  <img class="carrusel-img" src="{% static 'img/mrt8.jpg' %}" style="display:none;">
-  <img class="carrusel-img" src="{% static 'img/mrt9.jpg' %}" style="display:none;">
-  <img class="carrusel-img" src="{% static 'img/mrt10.jpg' %}" style="display:none;">
-  <button class="carrusel-btn" onclick="cambiarImagen(-1)">&#10094;</button>
-  <button class="carrusel-btn" onclick="cambiarImagen(1)">&#10095;</button>
-</div>
+  
 
 <style>
 .carrusel {
@@ -171,13 +173,13 @@ mostrarImagen(indice);
 <footer class="footer">
   <div class="footer-content">
     <span>Síguenos en:</span>
-    <a href="https://facebook.com/" target="_blank" class="social-link">
+    <a href="https://www.facebook.com/CONGRESOTARIJA2025/" target="_blank" class="social-link">
       <i class="bi bi-facebook social-icon"></i>
     </a>
     <a href="https://twitter.com/" target="_blank" class="social-link">
       <i class="bi bi-twitter-x social-icon"></i>
     </a>
-    <a href="https://instagram.com/" target="_blank" class="social-link">
+    <a href="https://www.instagram.com/congresotarija2025?fbclid=IwY2xjawLJi5dleHRuA2FlbQIxMABicmlkETFUQ0l0MVZ3Q0VZM1hXeDVwAR4--gwIH8JT9fWtCm1OFb5YHwmULXML8BNw5XKJyxZbt-pgPuwVjekW40oPpg_aem_p5Hlih1qQzM2CYp8svXUMA/" target="_blank" class="social-link">
       <i class="bi bi-instagram social-icon"></i>
     </a>
     <a href="https://youtube.com/" target="_blank" class="social-link">

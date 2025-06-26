@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambientes del Congreso</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      .ambientes-titulo {
+        text-align: center;
+        background: #2d1c0b;
+        color: #fff;
+        padding: 12px 0;
+        border-radius: 5px 5px 0 0;
+        font-family: 'Orbitron', Arial, sans-serif;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+        margin-top: 30px;
+      }
+      .ambientes-galeria {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+      .ambiente-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        overflow: hidden;
+        width: 340px;
+        text-align: center;
+        transition: transform 0.2s;
+      }
+      .ambiente-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 4px 16px rgba(224,122,63,0.15);
+      }
+      .ambiente-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-bottom: 3px solid #e07a3f;
+      }
+      .ambiente-nombre {
+        font-weight: bold;
+        color: #e07a3f;
+        font-size: 1.2rem;
+        margin: 14px 0 10px 0;
+      }
+      .ambiente-desc {
+        color: #2d1c0b;
+        font-size: 1rem;
+        margin-bottom: 18px;
+        padding: 0 10px;
+      }
+      /* Zoom modal */
+      .img-modal-bg {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0; top: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.8);
+        justify-content: center;
+        align-items: center;
+      }
+      .img-modal-bg.active {
+        display: flex;
+      }
+      .img-modal-img {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 10px;
+        box-shadow: 0 4px 32px #000a;
+        border: 5px solid #fff;
+      }
+      .img-modal-bg:active {
+        display: none;
+      }
+    </style>
+</head>
+<body>
+  <a href="/personal/" class="perfil-link">
+    <img src="{% static 'img/image personal default.png' %}" alt="Perfil" class="perfil-img">
+  </a>
+  <ul class="menu">
+    <li><a href="/">INICIO</a></li>
+    <li><a href="/expositores/">EXPOSITORES</a></li>
+    <li><a href="/ambientes/">AMBIENTES</a></li>
+    <li><a href="/cronograma/">CRONOGRAMA</a></li>
+    <li><a href="/noticias/">NOTICIAS</a></li>
+    <li><a href="#">CERTIFICADOS</a></li>
+    <li><a href="/ayuda/">CENTRO DE AYUDA</a></li>
+  </ul>
+
+  <h1 class="ambientes-titulo">Ambientes del Congreso</h1>
+  <div class="ambientes-galeria">
+    <div class="ambiente-card">
+      <img src="{% static 'ambientes/congreso.jpg' %}" alt="Auditorio Principal" class="ambiente-img">
+      <div class="ambiente-nombre">Auditorio Principal</div>
+      <div class="ambiente-desc">Espacio central para conferencias y plenarias del congreso.</div>
+    </div>
+    <div class="ambiente-card">
+      <img src="{% static 'ambientes/fotoDeTarija.jpg' %}" alt="Vista de Tarija" class="ambiente-img">
+      <div class="ambiente-nombre">Vista de Tarija</div>
+      <div class="ambiente-desc">Hermosa panorámica de la ciudad anfitriona del evento.</div>
+    </div>
+    <div class="ambiente-card">
+      <img src="{% static 'ambientes/vista.jpg' %}" alt="Sala de Talleres" class="ambiente-img">
+      <div class="ambiente-nombre">Sala de Talleres</div>
+      <div class="ambiente-desc">Ambiente equipado para talleres y actividades prácticas.</div>
+    </div>
+    <div class="ambiente-card">
+      <img src="{% static 'ambientes/cancha.jpg' %}" alt="Cancha Deportiva" class="ambiente-img">
+      <div class="ambiente-nombre">Cancha Deportiva</div>
+      <div class="ambiente-desc">Espacio para actividades recreativas y deportivas.</div>
+    </div>
+    <div class="ambiente-card">
+      <img src="{% static 'ambientes/comedor1.jpg' %}" alt="Comedor 1" class="ambiente-img">
+      <div class="ambiente-nombre">Comedor 1</div>
+      <div class="ambiente-desc">Zona de alimentación para los asistentes al congreso.</div>
+    </div>
+    <div class="ambiente-card">
+      <img src="{% static 'ambientes/comedor2.jpg' %}" alt="Comedor 2" class="ambiente-img">
+      <div class="ambiente-nombre">Comedor 2</div>
+      <div class="ambiente-desc">Segundo espacio de comedor para mayor comodidad.</div>
+    </div>
+  </div>
+
+  <!-- Pie de página con Bootstrap Icons -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>Síguenos en:</span>
+      <a href="https://www.facebook.com/CONGRESOTARIJA2025/" target="_blank" class="social-link">
+        <i class="bi bi-facebook social-icon"></i>
+      </a>
+      <a href="https://twitter.com/" target="_blank" class="social-link">
+        <i class="bi bi-twitter-x social-icon"></i>
+      </a>
+      <a href="https://www.instagram.com/congresotarija2025?fbclid=IwY2xjawLJi5dleHRuA2FlbQIxMABicmlkETFUQ0l0MVZ3Q0VZM1hXeDVwAR4--gwIH8JT9fWtCm1OFb5YHwmULXML8BNw5XKJyxZbt-pgPuwVjekW40oPpg_aem_p5Hlih1qQzM2CYp8svXUMA/" target="_blank" class="social-link">
+        <i class="bi bi-instagram social-icon"></i>
+      </a>
+      <a href="https://youtube.com/" target="_blank" class="social-link">
+        <i class="bi bi-youtube social-icon"></i>
+      </a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2025 Congreso. Todos los derechos reservados.
+    </div>
+  </footer>
+  <style>
+    .social-icon {
+      font-size: 28px;
+      color: #fff;
+      vertical-align: middle;
+      transition: color 0.2s;
+    }
+    .social-link:hover .social-icon {
+      color: #00bfff;
+    }
+    .footer {
+      background: #222;
+      color: #fff;
+      padding: 20px 0 10px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .footer-content {
+      margin-bottom: 10px;
+    }
+    .footer-copy {
+      font-size: 14px;
+      color: #aaa;
+    }
+    .perfil-link {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 100;
+      display: block;
+    }
+    .perfil-img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 3px solid #e07a3f;
+      background: #fff;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+    .perfil-link:hover .perfil-img {
+      box-shadow: 0 4px 16px rgba(224,122,63,0.25);
+    }
+  </style>
+</body>
+</html>

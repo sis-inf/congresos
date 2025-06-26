@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificados</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+    <h1>Certificados</h1>
+    <p>Aquí podrás descargar tus certificados cuando estén disponibles.</p>
+    <a href="{% url 'descargar_certificado' %}" class="boton">Descargar Certificado</a>
+</body>
+</html>

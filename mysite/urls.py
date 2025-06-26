@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp.views import inicio,noticias,detalles_de_noticia,cronograma,expositores,registro,personal,sesion
+from myapp.views import (
+    inicio, noticias, detalles_de_noticia, cronograma, expositores, registro,
+    personal, sesion, ayuda, admin_qr, procesar_qr,ambientes,certificados,
+    descargar_certificado
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,21 +37,24 @@ urlpatterns = [
 #e. Expositores
     path('expositores/',expositores),
 #2. Módulo de Asistente------------------
+    path('ayuda/', ayuda), 
 #a. Registro de Asistente
     path('registro/',registro),
-    path('personal/', personal),
-    path('sesion/', sesion),  # iniciar sesion pues da
 #b. Cuenta de usuario
-#c. Impresión de Credencial
+    path('personal/', personal),#para ver el perfil si conecta creo...
+    path('sesion/', sesion),  # iniciar sesion por el momento parece que sirve
+
 #d. Impresión de Certificado
-#3. Módulo de Organizadores---------------
-#a. Registro de Staff
-#b. Asignación de Roles
-#c. Registro de Expositores
-#d. Entrega de Material
-#e. Entrega de refrigerio
-#f. Marcado de Asistencia
-#g. Registro de Noticias
-    
+    path('certificados/', certificados),
+#g. ambientes
+    path('ambientes/', ambientes),
+
+
+#para que corra el qr
+    path('admin_qr/', admin_qr, name='admin_qr'),
+    path('procesar_qr/', procesar_qr, name='procesar_qr'),
+
+# Ruta para descargar certificado
+    path('descargar_certificado/', descargar_certificado, name='descargar_certificado'),
     
 ]
